@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\databasethread.o
+./release\serialthread.o
+./release\qcustomplot.o
+./release\figureutils.o
+./release\moc_mainwindow.o
+./release\moc_databasethread.o
+./release\moc_serialthread.o
+./release\moc_qcustomplot.o
+);

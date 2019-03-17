@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\databasethread.o
+./debug\serialthread.o
+./debug\qcustomplot.o
+./debug\figureutils.o
+./debug\moc_mainwindow.o
+./debug\moc_databasethread.o
+./debug\moc_serialthread.o
+./debug\moc_qcustomplot.o
+);
