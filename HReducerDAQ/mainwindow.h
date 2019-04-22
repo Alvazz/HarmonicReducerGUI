@@ -47,9 +47,14 @@ private:
     //figure
     QCustomPlot *figHandle[3];
     QCPGraph* graphHandle[3];
-    QVector<double> _motor_current;
-    QVector<double> _motor_angle;
-    QVector<double> _motor_velocity;
+//    QVector<double> _motor_current;
+//    QVector<double> _motor_angle;
+//    QVector<double> _motor_velocity;
+
+    QQueue<double> _motor_current;
+    QQueue<double> _motor_angle;
+    QQueue<double> _motor_velocity;
+
     QTimer *serialTimer;
     QTimer *upFigTimer;
 signals:

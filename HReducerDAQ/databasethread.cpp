@@ -57,7 +57,8 @@ void dataBaseThread::saveData_slot(QString mrMode,QString rdMode,
         bool check = sql.exec(str);
         qDebug()<<"数据插入："<<check<<endl;
     }
-    else{
+    else
+    {
         qDebug()<<"数据库连接异常!!"<<endl;
         return;
     }

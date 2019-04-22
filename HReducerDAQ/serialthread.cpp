@@ -40,9 +40,9 @@ void serialThread::closeSerialPort_slot()
     }
 }
 
-void serialThread::setCollectStatus(volatile bool isCollect)
+void serialThread::setCollectStatus(bool ch)
 {
-    isCollect = isCollect;
+    isCollect = ch;
     qDebug()<<"是否采集数据："<<isCollect<<endl;
 }
 
@@ -50,19 +50,28 @@ void serialThread::responseFromUIRequestData_slot(QString mrMode, QString rdMode
 {
     //获取串口数据
     QVector<float> data;
-    data.push_back(0.0);
-    data.push_back(0.0);
-    data.push_back(0.0);
+    data.push_back(1.0);
+    data.push_back(12.0);
+    data.push_back(3.0);
 
+    /*数据格式：data[0]:angle
+              data[1]:velocity
+              data[2]:current
+    */
     if(qserial.isOpen()&&isCollect)
     {
         /*
-         * do something
+         * do something 结合驱动器控制指令集获取传感器数据
         */
-        qDebug()<<"is starting....";
-        emit send2DataBase(mrMode,rdMode,btMode,data);
-        emit response2UI(data);
-        QThread::msleep(10);
+        qDebug()<<"serial status"<<qserial.isOpen();
+
+        if(!data.isEmpty()){
+            emit send2DataBase(mrMode,rdMode,btMode,data);
+            emit response2UI(data);
+            QThread::msleep(10);
+        }
+        else
+            qDebug()<<"data is empty!!"<<endl;
     }
     return;
 }

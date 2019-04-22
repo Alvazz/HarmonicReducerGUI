@@ -119,6 +119,7 @@ public:
         MainWindow->resize(850, 500);
         MainWindow->setMinimumSize(QSize(850, 500));
         MainWindow->setMaximumSize(QSize(850, 500));
+        MainWindow->setTabShape(QTabWidget::Rounded);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         groupBox = new QGroupBox(centralWidget);

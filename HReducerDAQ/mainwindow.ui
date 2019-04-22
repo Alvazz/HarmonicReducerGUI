@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>谐波减速器数据采集系统</string>
   </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">

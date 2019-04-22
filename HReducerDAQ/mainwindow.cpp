@@ -1,12 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-//#include "figureutils.h"
 #include <QVector>
 #include <QTimer>
-#include <QStringList>
-#include <QDoubleValidator>
-#include <QValidator>
-#include <QSqlDatabase>
 #include <QThread>
 #include <QDebug>
 #include <QMessageBox>
@@ -42,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(this,SIGNAL(serialPort(QString,qint32,qint8,qint8,qint8)),serial_thread,SLOT(initialPortSetting(QString,qint32,qint8,qint8,qint8)),Qt::QueuedConnection);
     connect(this,SIGNAL(serialCloseButton(bool)),serial_thread,SLOT(closeSerialPort_slot()),Qt::QueuedConnection);
-    connect(serial_thread,SIGNAL(isSerialOpen(bool)),this,SLOT(setBoxStatus(bool)));
+    connect(serial_thread,SIGNAL(isSerialOpen(bool)),this,SLOT(setBoxStatus(bool)),Qt::QueuedConnection);
 
     //database
     connect(this,SIGNAL(dataBaseConnect(QString,QString,QString,QString)),db_thread,SLOT(initialDB_slot(QString,QString,QString,QString)),Qt::QueuedConnection);
@@ -70,7 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(serialTimer,SIGNAL(timeout()),this,SLOT(requestSerialData()));
     //控制定时重新绘图
     upFigTimer = new QTimer(this);
-    upFigTimer->start(100);
+//    upFigTimer->start(100);
     connect(upFigTimer,SIGNAL(timeout()),this,SLOT(updateFigure()));
 }
 
@@ -93,6 +88,10 @@ void MainWindow::on_openButton_clicked()
 
 void MainWindow::on_closeButton_clicked()
 {
+    if(serialTimer->isActive())
+        serialTimer->stop();
+    if(upFigTimer->isActive())
+        upFigTimer->stop();
     emit serialCloseButton(true);
 }
 void MainWindow::setBoxStatus(bool isOpen)
@@ -181,7 +180,6 @@ void MainWindow::on_startCollectButton_clicked()
 {
 
     //串口开始读取数据
-    serialFlag = true;
     ui->progressBar->setValue(50);
     if(serialFlag && dbFlag)
     {
@@ -191,8 +189,9 @@ void MainWindow::on_startCollectButton_clicked()
         reducerMode = ui->HRBox->currentText();
         beltMode = ui->beltBox->currentText();
         emit requestCollect(true);
-        serialTimer->start();
-        upFigTimer->start(100);
+        //开启定时器
+        serialTimer->start(0.008);
+        upFigTimer->start(0.008);
     }
     else
     {
@@ -222,8 +221,10 @@ void MainWindow::on_stopCollectButton_clicked()
 {
     //串口停止采集数据
     collectFlag = false;
-    upFigTimer->stop();//关掉绘图定时器
-    serialTimer->stop();
+    if(upFigTimer->isActive())
+        upFigTimer->stop();
+    if(serialTimer->isActive())
+        serialTimer->stop();
     emit requestCollect(false);
     ui->startCollectButton->setEnabled(true);
     ui->progressBar->setValue(0);
@@ -231,12 +232,25 @@ void MainWindow::on_stopCollectButton_clicked()
 
 void MainWindow::getResponseData(QVector<float>data)
 {
-    //获取来自serial的数据
+    //获取来自serial的数据        
     if(collectFlag)
     {
-        _motor_current.push_back(data[0]);
-        _motor_angle.push_back(data[1]);
-        _motor_velocity.push_back(data[2]);
+//        if(_motor_angle.size()>=100)
+//        {
+//            _motor_angle.clear();
+//            _motor_current.clear();
+//            _motor_velocity.clear();
+//        }
+//        _motor_current.push_back(data[0]);
+//        _motor_angle.push_back(data[1]);
+//        _motor_velocity.push_back(data[2]);
+
+        if(!data.isEmpty()){
+            _motor_current.enqueue(data[0]);
+            _motor_angle.enqueue(data[1]);
+            _motor_velocity.enqueue(data[2]);
+        }
+
     }
     qDebug()<<"_motor_current"<<_motor_current.size();
 }
@@ -266,16 +280,35 @@ QCPGraph* MainWindow::addGraph(QCustomPlot* fig)
 }
 void MainWindow::updateFigure()
 {
-    QVector<double> xvec,yvec;
-    for(int i=0;i<1000;i++){
-        xvec.push_back(qrand()%100);
-        yvec.push_back(qrand()%100);
+    QVector<double> xvec;
+    QVector<double> current,angle,velocity;
+    QVector<QVector<double>> data;
+    for(int i=0;i<200;i++)
+    {
+        if(!_motor_angle.isEmpty()&&!_motor_current.isEmpty()&&!_motor_velocity.isEmpty())
+        {
+            current.push_back(_motor_current.head());
+            angle.push_back(_motor_angle.head());
+            velocity.push_back(_motor_velocity.head());
+            xvec.push_back(i);
+
+            _motor_current.dequeue();
+            _motor_angle.dequeue();
+            _motor_velocity.dequeue();
+        }
+        else break;
     }
+
+    data.push_back(current);
+    data.push_back(angle);
+    data.push_back(velocity);
+
+    qDebug()<<"hello world hello world"<<endl;
     if(collectFlag)
     {
         for(int i=0;i<3;i++)
         {
-            figHandle[i]->graph()->addData(xvec,yvec);
+            figHandle[i]->graph()->addData(xvec,data[i]);
             figHandle[i]->rescaleAxes(true);
             figHandle[i]->replot();
         }

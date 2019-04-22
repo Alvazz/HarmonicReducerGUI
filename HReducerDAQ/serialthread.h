@@ -21,8 +21,7 @@ private:
     qint8 patiry;       //校验方式
     qint8 stopBits;     //停止位
 
-    volatile bool isCollect;
-    QMutex mutex;
+    bool isCollect;
 
 signals:
     void isSerialOpen(bool);    //
