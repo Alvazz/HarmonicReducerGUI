@@ -196,6 +196,7 @@ Makefile: move_control.pro D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/win32-g+
 		D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/qt_config.prf \
 		D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/toolchain.prf \
 		D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/default_pre.prf \
@@ -366,6 +367,7 @@ D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/qt_functions.prf:
 D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/qt_config.prf:
 D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf:
 D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf:
 D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/toolchain.prf:
 D:/Softwares/QT/qt5.8/5.8/mingw53_32/mkspecs/features/default_pre.prf:

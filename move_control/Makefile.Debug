@@ -480,7 +480,61 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtSerialPort/QSerialPortInfo \
 		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtSerialPort/qserialportinfo.h \
 		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtCore/QDebug \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtCore/QVariant \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QAction \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qaction.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qactiongroup.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QApplication \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qapplication.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtCore/qcoreapplication.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtCore/qeventloop.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtGui/qguiapplication.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtGui/qinputmethod.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QButtonGroup \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QComboBox \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qcombobox.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qstyleoption.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtGui/qvalidator.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtCore/qregularexpression.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qslider.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qabstractslider.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qstyle.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qtabbar.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qrubberband.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qframe.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QFrame \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QGroupBox \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qgroupbox.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QHBoxLayout \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qboxlayout.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qlayout.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qlayoutitem.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qgridlayout.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QHeaderView \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qheaderview.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QMenuBar \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qmenubar.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qmenu.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QPushButton \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qpushbutton.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QStatusBar \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qstatusbar.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QToolBar \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/qtoolbar.h \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QVBoxLayout \
+		D:/Softwares/QT/qt5.8/5.8/mingw53_32/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o mainwindow.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
